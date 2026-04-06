@@ -1,0 +1,200 @@
+﻿nav.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    background: rgba(14,20,16,.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2rem;
+}
+
+.nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+    .nav-logo span {
+        color: var(--text);
+    }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+    flex: 1;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: .95rem;
+    padding: .5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color var(--ease),background var(--ease);
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    white-space: nowrap;
+}
+
+    .nav-btn:hover {
+        color: var(--text);
+        background: var(--bg3);
+    }
+
+    .nav-btn.active {
+        color: var(--accent);
+        background: rgba(124,197,82,.08);
+    }
+
+.nav-arr {
+    font-size: .6rem;
+    transition: transform var(--ease);
+    display: inline-block;
+}
+
+.nav-btn.open .nav-arr {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    min-width: 210px;
+    padding: .5rem;
+    box-shadow: 0 24px 64px rgba(0,0,0,.55);
+    animation: dropIn .18s ease;
+}
+
+.dd-item {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: .875rem;
+    padding: .6rem .9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: color var(--ease),background var(--ease);
+}
+
+    .dd-item:hover {
+        color: var(--text);
+        background: var(--bg3);
+    }
+
+.nav-cta {
+    margin-left: auto;
+    background: var(--accent);
+    color: #0e1410;
+    border: none;
+    font-family: var(--sans);
+    font-size: .875rem;
+    font-weight: 700;
+    padding: .55rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background var(--ease),transform var(--ease);
+    white-space: nowrap;
+}
+
+    .nav-cta:hover {
+        background: var(--accent2);
+        transform: translateY(-1px);
+    }
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 98; /* ← було 99, має бути менше ніж nav */
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 1rem 1.5rem 1.5rem; /* ← зменшив верхній padding */
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    overflow-y: auto;
+    animation: fadeIn .2s ease;
+}
+
+.mob-btn {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 1rem;
+    padding: .9rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color var(--ease),background var(--ease);
+}
+
+    .mob-btn:hover {
+        border-color: var(--accent);
+        background: var(--bg3);
+    }
+
+    .mob-btn.mob-accent {
+        background: var(--accent);
+        color: #0e1410;
+        font-weight: 700;
+        border-color: var(--accent);
+    }
+
+@media(max-width:900px) {
+    nav.main-nav {
+        padding: 0 1.25rem;
+    }
+
+    .nav-links, .nav-cta {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
